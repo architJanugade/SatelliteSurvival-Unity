@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3411794483234387251}
   - component: {fileID: 9067272971946347254}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Obstacle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8892787834820572133}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &8892787834820572135
 MeshRenderer:
   m_ObjectHideFlags: 0
