@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +7,10 @@ public class ObjectPooler : MonoBehaviour
     public static ObjectPooler sharedInstace;
 
     private List<GameObject> Obstacles = new List<GameObject>();
-    public GameObject obstacle;
+    public GameObject obstacle1 , obstacle2;
 
-    [SerializeField] private int size = 10;
+
+    [SerializeField] private int size = 20;
 
     private void Awake()
     {
@@ -24,9 +25,15 @@ public class ObjectPooler : MonoBehaviour
 
     public void FillList()
     {
-        for(int i = 0; i < size; i++)
+        for(int i = 0; i < size/2; i++)
         {
-            GameObject Gobj = Instantiate(obstacle);
+            GameObject Gobj = Instantiate(obstacle1);
+            Gobj.SetActive(false);
+            Obstacles.Add(Gobj);
+        }
+        for (int i = size/2; i < size; i++)
+        {
+            GameObject Gobj = Instantiate(obstacle2);
             Gobj.SetActive(false);
             Obstacles.Add(Gobj);
         }
@@ -34,10 +41,11 @@ public class ObjectPooler : MonoBehaviour
 
     public void UseList()
     {
-        var Gobj = Obstacles[0];
+        int pos = Random.Range(0, 10);
+        var Gobj = Obstacles[pos];
         Gobj.transform.position = Random.insideUnitSphere * 20f;
         Gobj.SetActive(true);
-        Obstacles.RemoveAt(0);
+        Obstacles.RemoveAt(pos);
     }
 
     public void BacktoList(GameObject obj)
@@ -51,3 +59,4 @@ public class ObjectPooler : MonoBehaviour
         
     }
 }
+
